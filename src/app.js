@@ -3,6 +3,7 @@ const cors = require('cors');
 
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const translationRoutes = require('./routes/translationRoutes');
 const cookieParser = require('cookie-parser');
 const requireAuth = require('./middleware/requireAuth');
 
@@ -26,5 +27,6 @@ app.use('/api/auth', authRoutes);
 
 //protected routes
 app.use('/api/users', requireAuth, userRoutes);
+app.use('/api/translations', requireAuth, translationRoutes);
 
 module.exports = app;
