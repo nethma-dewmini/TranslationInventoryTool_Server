@@ -15,14 +15,16 @@ app.use(cors({
     credentials: true,
 }));
 app.use(express.json());
+app.use(cookieParser());
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
 });
-app.use(cookieParser());
 
 //public routes
 app.use('/api/auth', authRoutes);
 
 //protected routes
 app.use('/api/users', requireAuth, userRoutes);
+
+module.exports = app;

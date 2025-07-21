@@ -1,4 +1,5 @@
 // Responsible for establishing and exporting MongoDB connection
+//db.js
 const mongoose = require('mongoose');
 const { mongoURI } = require('./config');
 
