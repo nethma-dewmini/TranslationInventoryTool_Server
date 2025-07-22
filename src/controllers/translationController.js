@@ -1,5 +1,4 @@
 const Translation = require('../models/Translation');
-const { notifyNewTranslation } = require('../utils/notificationService');
 
 // Add a Translation
 exports.addTranslation = async (req, res, next) => {
