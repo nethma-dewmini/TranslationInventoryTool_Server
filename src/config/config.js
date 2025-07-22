@@ -1,5 +1,4 @@
 // Loads environment variables and exports app configuration
-//config.js
 require('dotenv').config();
 
 const DEFAULT_PORT = 5000;

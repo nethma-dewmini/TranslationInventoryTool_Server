@@ -1,4 +1,3 @@
-//authController
 // handles user authentication, registration, and password workflow
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
@@ -12,7 +11,7 @@ const { resetPasswordTemplate } = require('../utils/emailTemplates');
 const { getAllowedLanguageCodes } = require('../utils/languageHelper');
 const { isStrongPassword } = require('../models/User');
 const { frontendURL } = require('../config/config');
-const Language = require('../models/Languge');
+const Language = require('../models/Language');
 
 // Constants for expiry and messages
 const PASSWORD_RESET_EXPIRY_MINUTES = 15;
@@ -70,8 +69,6 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.login(email, password);
-        user.lastActivity = Date.now();
-        await user.save();
         const token = createToken({ id: user._id, role: user.role });
         // send token as HTTP only secure cookie
         res.cookie('token', token, {
