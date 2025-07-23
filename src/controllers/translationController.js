@@ -1,4 +1,5 @@
 const Translation = require('../models/Translation');
+const { notifyNewTranslation } = require('../utils/notificationService');
 
 // Add a Translation
 exports.addTranslation = async (req, res, next) => {
@@ -76,7 +77,7 @@ exports.getTranslations = async (req, res, next) => {
   }
 };
 
-// Approve a Translation 
+//  Approve a Translation 
 exports.approveTranslation = async (req, res, next) => {
   try {
     const translation = await Translation.findById(req.params.id);
