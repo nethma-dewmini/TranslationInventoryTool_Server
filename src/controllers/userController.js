@@ -6,6 +6,7 @@ const { sendMail } = require('../utils/mailer');
 const { approvalTemplate, rejectionTemplate } = require('../utils/emailTemplates')
 const adminAudit = require('../models/adminAudit');
 const { frontendURL } = require('../config/config');
+const { notifyLanguageAssignment } = require('../utils/notificationService');
 
 //Role status constants
 const ROLE_STATUS = {
